@@ -1,4 +1,5 @@
-// giraffe.ts
+// girrafe.ts
+
 import { Animal } from "../animal";
 import { Fruit } from "../fruits";
 
@@ -13,11 +14,16 @@ export class Giraffe implements Animal {
   
     eat(fruits: Fruit[]): number {
       let totalFruits = 0;
-      for (const fruit of fruits) {
-        totalFruits += fruit.apple + fruit.strawberry + fruit.banana + fruit.orange;
-      }
       const uniqueFruits = Object.keys(fruits[0]).length - 1; 
-      return Math.ceil(totalFruits / (5 * uniqueFruits));
+      
+      
+      for (const fruit of fruits) {
+        const fruitsArray = Object.values(fruit);
+        fruitsArray.pop(); 
+        const maxFruits = Math.max(...fruitsArray);
+        totalFruits += maxFruits;
+      }
+      
+      return Math.ceil(totalFruits / uniqueFruits);
     }
-  }
-  
+}

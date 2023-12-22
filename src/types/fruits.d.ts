@@ -4,7 +4,6 @@ export interface Fruit {
     strawberry: number;
     banana: number;
     orange: number;
-    quantity: number;
-
+    quantity?: number;
   }
   
